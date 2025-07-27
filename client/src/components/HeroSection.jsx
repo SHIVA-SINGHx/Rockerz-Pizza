@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Clock, Truck, Pizza } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+
+
 
 
 const HeroSection = () => {
@@ -26,6 +27,19 @@ const HeroSection = () => {
     delay: i * 0.5,
     duration: 8 + (i % 3),
   }));
+
+  const handleSmoothScroll = (e, targetId) => {
+  e.preventDefault(); // Prevent default anchor behavior
+  const targetSection = document.getElementById(targetId);
+  
+  if (targetSection) {
+    const offsetTop = targetSection.offsetTop - 80; // Account for navbar
+    window.scrollTo({
+      top: offsetTop,
+      behavior: 'smooth' // Smooth scroll animation
+    });
+  }
+};
 
   return (
     <section id="home" className="min-h-screen bg-black relative overflow-hidden flex items-center justify-center pt-20">
@@ -93,15 +107,19 @@ const HeroSection = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up delay-500">
-          <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:from-orange-600 hover:to-red-600 hover:shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 active:scale-95 hover:-translate-y-1">
+         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up delay-500">
+          <button 
+            className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:from-orange-600 hover:to-red-600 hover:shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 active:scale-95 hover:-translate-y-1"
+            onClick={(e) => handleSmoothScroll(e, 'menu')}
+          >
             🍕 Order Now
           </button>
           
-          <button className="border-2 border-orange-500 text-orange-400 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-orange-500 hover:shadow-lg transform hover:scale-105 active:scale-95">
-        
+          <button 
+            className="border-2 border-orange-500 text-orange-400 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-orange-500 hover:shadow-lg transform hover:scale-105 active:scale-95"
+            onClick={(e) => handleSmoothScroll(e, 'menu')}
+          >
             📋 View Menu
-           
           </button>
         </div>
 
