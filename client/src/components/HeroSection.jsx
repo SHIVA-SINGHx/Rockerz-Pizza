@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Clock, Truck, Pizza } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
 
 const HeroSection = () => {
   const [currentText, setCurrentText] = useState(0);
@@ -96,7 +98,7 @@ const HeroSection = () => {
           </button>
           
           <button className="border-2 border-orange-500 text-orange-400 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-orange-500 hover:shadow-lg transform hover:scale-105 active:scale-95">
-            📋 View Menu
+           
           </button>
         </div>
 

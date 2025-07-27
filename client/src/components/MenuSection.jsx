@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Search, Filter, Star, Plus, Heart, Leaf } from 'lucide-react';
 import { menuCategories, menuItems } from '../assets/assest/assests';
 
-// Import menu data (In your project, you'll import from the actual file)
 
 const MenuSection = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
