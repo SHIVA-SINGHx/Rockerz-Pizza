@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Clock, Truck, Pizza } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
-
-
 
 const HeroSection = () => {
   const [currentText, setCurrentText] = useState(0);
@@ -33,10 +29,10 @@ const HeroSection = () => {
   const targetSection = document.getElementById(targetId);
   
   if (targetSection) {
-    const offsetTop = targetSection.offsetTop - 80; // Account for navbar
+    const offsetTop = targetSection.offsetTop - 80;
     window.scrollTo({
       top: offsetTop,
-      behavior: 'smooth' // Smooth scroll animation
+      behavior: 'smooth' 
     });
   }
 };
