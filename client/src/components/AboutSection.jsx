@@ -82,7 +82,7 @@ const AboutSection = () => {
           ...prev,
           [counterKey]: Math.floor(startValue)
         }));
-      }, 30); // Slightly slower for better visual effect
+      }, 30); 
     });
   };
 
@@ -98,7 +98,7 @@ const AboutSection = () => {
 
   return (
     <section id="about" ref={sectionRef} className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
-      {/* Background Effects */}
+      
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -116,10 +116,10 @@ const AboutSection = () => {
           </p>
         </div>
 
-        {/* Story Section */}
+        
         <div className={`grid lg:grid-cols-2 gap-12 items-center mb-20 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
-          {/* Story Content */}
+          
           <div className="space-y-6">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Our <span className="text-orange-400">Journey</span>
@@ -229,7 +229,7 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
+        {
         <div className={`text-center mt-20 transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
             Ready to Rock Your Taste Buds?
