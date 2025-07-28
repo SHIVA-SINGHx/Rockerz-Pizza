@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import HeroSection from './components/HeroSection'
 import MenuSection from './components/MenuSection'
 import AboutSection from './components/AboutSection'
+import Footer from './components/FooterSection'
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <HeroSection/>
       <MenuSection/>
       <AboutSection/>
+      <Footer/>
     </div>
 
   )
