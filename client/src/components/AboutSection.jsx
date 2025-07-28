@@ -229,7 +229,7 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {
+        
         <div className={`text-center mt-20 transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
             Ready to Rock Your Taste Buds?
@@ -239,9 +239,6 @@ const AboutSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:from-orange-600 hover:to-red-600 hover:shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 active:scale-95 hover:-translate-y-1">
-              🍕 Order Now
-            </button>
             
             <button className="border-2 border-orange-500 text-orange-400 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-orange-500 hover:shadow-lg transform hover:scale-105 active:scale-95">
               📞 Contact Us
