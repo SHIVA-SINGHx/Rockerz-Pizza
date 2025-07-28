@@ -119,7 +119,7 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Stats */}
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto animate-fade-in-up delay-700">
           <div className="text-center group cursor-pointer">
             <div className="bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-2xl p-6 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-br hover:from-orange-500/30 hover:to-red-500/30">

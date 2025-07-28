@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import { Route, Routes } from 'react-router-dom'
 import HeroSection from './components/HeroSection'
 import MenuSection from './components/MenuSection'
+import AboutSection from './components/AboutSection'
 
 
 const App = () => {
@@ -12,11 +13,9 @@ const App = () => {
       <Navbar/>
       <HeroSection/>
       <MenuSection/>
+      <AboutSection/>
     </div>
-  //  <Routes>
-  //   <Route path='/' element= {<Navbar/>} />
 
-  //  </Routes>
   )
 }
 
