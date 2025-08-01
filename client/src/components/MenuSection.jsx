@@ -3,9 +3,6 @@ import { Search, Filter, Star, Plus, Heart, Leaf } from 'lucide-react';
 import { menuCategories, menuItems } from '../assets/assest/assests';
 import CartContext from './context/CartContext';
 
-// Import your CartContext (make sure the path is correct)
-// Adjust path as needed
-
 const MenuSection = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');

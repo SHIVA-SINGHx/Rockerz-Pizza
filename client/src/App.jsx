@@ -12,16 +12,12 @@ const App = () => {
   return (
 
     <div>
-
-      
-
       <Navbar/>
       <HeroSection/>
       <MenuSection/>
       <CartSidebar/>
       <AboutSection/>
       <Footer/>
-      
     </div>
 
   )

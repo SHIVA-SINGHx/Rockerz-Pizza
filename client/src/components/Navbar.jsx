@@ -75,7 +75,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Right Side Icons */}
+          
           <div className="hidden md:flex items-center space-x-4">
             <button 
               onClick={handleCartClick}
