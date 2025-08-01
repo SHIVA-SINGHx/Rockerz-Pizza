@@ -5,17 +5,23 @@ import HeroSection from './components/HeroSection'
 import MenuSection from './components/MenuSection'
 import AboutSection from './components/AboutSection'
 import Footer from './components/FooterSection'
+import { CartSidebar } from './components/CartSidebar'
 
 
 const App = () => {
   return (
 
     <div>
+
+      
+
       <Navbar/>
       <HeroSection/>
       <MenuSection/>
+      <CartSidebar/>
       <AboutSection/>
       <Footer/>
+      
     </div>
 
   )

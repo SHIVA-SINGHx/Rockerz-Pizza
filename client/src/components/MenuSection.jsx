@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Search, Filter, Star, Plus, Heart, Leaf } from 'lucide-react';
 import { menuCategories, menuItems } from '../assets/assest/assests';
+import CartContext from './context/CartContext';
 
+// Import your CartContext (make sure the path is correct)
+// Adjust path as needed
 
 const MenuSection = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -10,6 +13,9 @@ const MenuSection = () => {
   const [selectedSize, setSelectedSize] = useState({});
   const [favorites, setFavorites] = useState(new Set());
 
+  // Use Cart Context
+  const { addToCart } = useContext(CartContext);
+  
   useEffect(() => {
     let filtered = menuItems;
 
@@ -51,6 +57,27 @@ const MenuSection = () => {
   const getItemPrice = (item) => {
     const size = selectedSize[item.id] || 'medium';
     return item.price[size];
+  };
+
+  // Handle Add to Cart
+  const handleAddToCart = (item) => {
+    const selectedItemSize = selectedSize[item.id] || 'medium';
+    const itemPrice = item.price[selectedItemSize];
+    
+    const cartItem = {
+      id: item.id,
+      name: item.name,
+      price: itemPrice,
+      size: selectedItemSize,
+      image: item.image,
+      isVeg: item.isVeg
+    };
+    
+    addToCart(cartItem);
+    
+    // Show success feedback (optional)
+    // You can add a toast notification here
+    console.log(`Added ${item.name} (${selectedItemSize}) to cart`);
   };
 
   return (
@@ -193,7 +220,10 @@ const MenuSection = () => {
                       ₹{getItemPrice(item)}
                     </span>
                   </div>
-                  <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 active:scale-95">
+                  <button 
+                    onClick={() => handleAddToCart(item)}
+                    className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 active:scale-95"
+                  >
                     <Plus className="w-4 h-4" />
                     Add
                   </button>

@@ -1,9 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Menu, X, Pizza, ShoppingCart, Phone, MapPin } from 'lucide-react';
+import { MdFavorite } from "react-icons/md";
+import CartContext from './context/CartContext';
+
+
+// Import your CartContext (adjust path as needed)
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Use Cart Context
+  const { items, toggleCart } = useContext(CartContext);
+
+  // Calculate total items in cart
+  const cartItemCount = items?.reduce((total, item) => total + item.quantity, 0) || 0;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +32,10 @@ const Navbar = () => {
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  const handleCartClick = () => {
+    toggleCart();
+  };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -67,15 +82,20 @@ const Navbar = () => {
 
           {/* Right Side Icons */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="relative text-white hover:text-orange-400 p-2 rounded-lg transition-all duration-300 hover:bg-orange-500/20 group">
+            <button 
+              onClick={handleCartClick}
+              className="relative text-white hover:text-orange-400 p-2 rounded-lg transition-all duration-300 hover:bg-orange-500/20 group"
+            >
               <ShoppingCart className="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" />
-              <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-pulse">
-                0
-              </span>
+              {cartItemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-pulse">
+                  {cartItemCount}
+                </span>
+              )}
             </button>
             
-            <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 hover:from-orange-600 hover:to-red-600 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 active:scale-95">
-              Order Now
+            <button className="relative text-red-400 hover:text-orange-400 p-2 rounded-lg transition-all duration-300 hover:bg-orange-500/20 group">
+              <MdFavorite className="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" />
             </button>
           </div>
 
@@ -117,13 +137,16 @@ const Navbar = () => {
             ))}
             
             <div className="flex items-center justify-between pt-4 px-4 border-t border-orange-500/30">
-              <button className="flex items-center text-white hover:text-orange-400 transition-colors duration-300">
+              <button 
+                onClick={handleCartClick}
+                className="flex items-center text-white hover:text-orange-400 transition-colors duration-300"
+              >
                 <ShoppingCart className="h-5 w-5 mr-2" />
-                Cart (3)
+                Cart ({cartItemCount})
               </button>
               
-              <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 hover:from-orange-600 hover:to-red-600 transform hover:scale-105 active:scale-95">
-                Order Now
+              <button className="relative text-red-400 hover:text-orange-400 p-2 rounded-lg transition-all duration-300 hover:bg-orange-500/20 group">
+                <MdFavorite className="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" />
               </button>
             </div>
           </div>
