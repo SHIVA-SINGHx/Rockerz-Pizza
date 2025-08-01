@@ -3,17 +3,12 @@ import { Menu, X, Pizza, ShoppingCart, Phone, MapPin } from 'lucide-react';
 import { MdFavorite } from "react-icons/md";
 import CartContext from './context/CartContext';
 
-
-// Import your CartContext (adjust path as needed)
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Use Cart Context
   const { items, toggleCart } = useContext(CartContext);
 
-  // Calculate total items in cart
   const cartItemCount = items?.reduce((total, item) => total + item.quantity, 0) || 0;
 
   useEffect(() => {
