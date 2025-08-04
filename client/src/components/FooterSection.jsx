@@ -225,7 +225,6 @@ const Footer = () => {
                 })}
               </div>
 
-              {/* Working Hours */}
               <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-lg p-4 border border-gray-700/50">
                 <div className="flex items-center mb-3">
                   <Clock className="w-5 h-5 text-orange-400 mr-2" />
