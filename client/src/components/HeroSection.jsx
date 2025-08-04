@@ -45,7 +45,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,_rgba(239,68,68,0.3)_0%,_transparent_50%)]"></div>
       </div>
 
-      {/* Floating Food Items */}
       {floatingItems.map((item) => (
         <div
           key={item.id}
@@ -102,7 +101,6 @@ const HeroSection = () => {
           </p>
         </div>
 
-        {/* Action Buttons */}
          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up delay-500">
           <button 
             className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:from-orange-600 hover:to-red-600 hover:shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 active:scale-95 hover:-translate-y-1"
