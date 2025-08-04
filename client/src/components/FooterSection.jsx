@@ -139,7 +139,6 @@ const Footer = () => {
                 Every pizza crafted with love, passion, and premium ingredients.
               </p>
               
-              {/* Social Media */}
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => {
                   const Icon = social.icon;
@@ -159,7 +158,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Links */}
             <div>
               <h3 className="text-xl font-bold text-white mb-6 relative">
                 Quick Links
