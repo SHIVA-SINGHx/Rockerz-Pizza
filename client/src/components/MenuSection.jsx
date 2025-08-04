@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Search, Filter, Star, Plus, Heart, Leaf } from 'lucide-react';
+import { Search, Filter, Star, Plus, Heart, Leaf, TableRowsSplit } from 'lucide-react';
 import { menuCategories, menuItems } from '../assets/assest/assests';
 import CartContext from './context/CartContext';
 
@@ -72,9 +72,7 @@ const MenuSection = () => {
     
     addToCart(cartItem);
     
-    // Show success feedback (optional)
-    // You can add a toast notification here
-    console.log(`Added ${item.name} (${selectedItemSize}) to cart`);
+   
   };
 
   return (
