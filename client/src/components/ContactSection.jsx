@@ -10,6 +10,9 @@ import {
   User,
   MessageSquare
 } from 'lucide-react';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +22,7 @@ const ContactSection = () => {
     subject: '',
     message: ''
   });
+  const form = useRef();
 
   const [status, setStatus] = useState({
     type: '',
@@ -131,6 +135,23 @@ const ContactSection = () => {
     }
   ];
 
+    const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
+        publicKey: 'YOUR_PUBLIC_KEY',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
   return (
     <section id="contact" className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
       <div className="absolute inset-0">
@@ -179,6 +200,9 @@ const ContactSection = () => {
             );
           })}
         </div>
+        
+
+        <form ref={form} onSubmit={sendEmail}>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           
@@ -293,10 +317,10 @@ const ContactSection = () => {
                   disabled={isSubmitting}
                   className={`w-full bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 ${
                     isSubmitting 
-                      ? 'opacity-50 cursor-not-allowed' 
-                      : 'hover:from-orange-600 hover:to-red-600 hover:shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 active:scale-95'
-                  }`}
-                >
+                    ? 'opacity-50 cursor-not-allowed' 
+                    : 'hover:from-orange-600 hover:to-red-600 hover:shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 active:scale-95'
+                    }`}
+                    >
                   <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                   <Send className={`w-5 h-5 ${isSubmitting ? 'animate-pulse' : ''}`} />
                 </button>
@@ -314,7 +338,7 @@ const ContactSection = () => {
                 allowFullScreen=""
                 loading="lazy"
                 className="grayscale hover:grayscale-0 transition-all duration-500"
-              ></iframe>
+                ></iframe>
             </div>
 
             <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
@@ -366,6 +390,8 @@ const ContactSection = () => {
             </div>
           </div>
         </div>
+
+            </form>
       </div>
 
       <style jsx>{`
