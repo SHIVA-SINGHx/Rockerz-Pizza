@@ -272,7 +272,7 @@ const Footer = () => {
             <div className="flex items-center text-gray-400 mb-4 md:mb-0">
               <span>© 2025 Rockerz Pizza. Made with</span>
               <Heart className="w-4 h-4 text-red-500 mx-2 animate-pulse" />
-              <span>in India. All rights reserved.</span>
+              <span>All rights reserved Shiva</span>
             </div>
             
             <div className="flex items-center space-x-6">

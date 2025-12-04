@@ -6,6 +6,7 @@ import MenuSection from './components/MenuSection'
 import AboutSection from './components/AboutSection'
 import Footer from './components/FooterSection'
 import { CartSidebar } from './components/CartSidebar'
+import Contact from './components/ContactSection'
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
       <CartSidebar/>
       <AboutSection/>
       <Footer/>
+      
     </div>
 
   )

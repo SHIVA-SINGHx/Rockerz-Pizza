@@ -141,7 +141,7 @@ export const CartSidebar = () => {
                 onClick={handleCheckout}
                 className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-xl font-medium hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 active:scale-95"
               >
-                Proceed to Checkout
+               <a href="https://github.com/SHIVA-SINGHx/Rockerz-Pizza">Proceed to Checkout</a> 
               </button>
               
               <button

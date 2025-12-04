@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Users, Award, Clock, Heart, ChefHat, MapPin, Star, Zap } from 'lucide-react';
+import ContactSection from './ContactSection';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -229,8 +230,9 @@ const AboutSection = () => {
           </div>
         </div>
 
+        <ContactSection/>
         
-        <div className={`text-center mt-20 transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        {/* <div className={`text-center mt-20 transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
             Ready to Rock Your Taste Buds?
           </h3>
@@ -244,7 +246,7 @@ const AboutSection = () => {
               📞 Contact Us
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`
