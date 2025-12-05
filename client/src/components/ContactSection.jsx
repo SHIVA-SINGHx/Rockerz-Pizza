@@ -39,7 +39,7 @@ const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus({ type: '', message: '' });
@@ -64,20 +64,16 @@ const ContactSection = () => {
     }
 
     try {
-      const subject = encodeURIComponent(formData.subject || 'Contact Form Submission - Rockerz Pizza');
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Phone: ${formData.phone || 'Not provided'}\n\n` +
-        `Message:\n${formData.message}`
-      );
-      
-      const mailtoLink = `mailto:hello@rockerzpizza.com?subject=${subject}&body=${body}`;
-      window.location.href = mailtoLink;
+      const public_key = 'cYdtN1vpKahyud09I';
+      const service_id = 'service_k3iknus';
+      const template_id = 'template_gdxe0na';
+
+      // sendForm: (serviceID, templateID, htmlFormElement, publicKey)
+      await emailjs.sendForm(service_id, template_id, form.current, public_key);
 
       setStatus({
         type: 'success',
-        message: 'Your default email client will open. Thank you for contacting us!'
+        message: 'Message sent! We will get back to you shortly.'
       });
 
       setFormData({
@@ -91,13 +87,11 @@ const ContactSection = () => {
       setTimeout(() => {
         setStatus({ type: '', message: '' });
       }, 5000);
-
     } catch (error) {
-        console.log(error);     
+      console.error('EmailJS error:', error);
       setStatus({
         type: 'error',
-        message: 'Something went wrong. Please try again or call us directly.'
-        
+        message: 'Something went wrong sending your message. Please try again or contact us directly.'
       });
     } finally {
       setIsSubmitting(false);
@@ -135,22 +129,26 @@ const ContactSection = () => {
     }
   ];
 
-    const sendEmail = (e) => {
-    e.preventDefault();
+  //   const sendEmail = (e) => {
+  //   e.preventDefault();
 
-    emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-  };
+  //   const public_key = 'cYdtN1vpKahyud09I'
+  //   const service_id = 'service_k3iknus'
+  //   const template_id = 'template_gdxe0na'
+
+  //   emailjs
+  //     .sendForm(service_id, template_id, form.current, {
+  //       publicKey: public_key,
+  //     })
+  //     .then(
+  //       () => {
+  //         console.log('SUCCESS!');
+  //       },
+  //       (error) => {
+  //         console.log('FAILED...', error.text);
+  //       },
+  //     );
+  // };
 
   return (
     <section id="contact" className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
@@ -202,7 +200,7 @@ const ContactSection = () => {
         </div>
         
 
-        <form ref={form} onSubmit={sendEmail}>
+        <form ref={form} onSubmit={handleSubmit}>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           
@@ -313,7 +311,7 @@ const ContactSection = () => {
                 </div>
 
                 <button
-                  onClick={handleSubmit}
+                  type="submit"
                   disabled={isSubmitting}
                   className={`w-full bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 ${
                     isSubmitting 
